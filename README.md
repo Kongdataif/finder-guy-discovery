@@ -1,5 +1,15 @@
 # 파인더야, 그것 좀 찾아줘!
 
+<p align="center">
+  <a href="https://finder-guy-discovery.netlify.app/">
+    <img src="public/assets/finder/poses-v2.png" alt="돋보기로 찾고, 노트북으로 일하고, 쉬거나 여행하는 여러 모습의 파인더 가이" width="640">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://finder-guy-discovery.netlify.app/">🎮 게임 바로 플레이</a>
+</p>
+
 파인더 가이와 작은 책상 위의 파일을 찾고 정리하는 브라우저 게임입니다. 마우스와 터치로 플레이하며, 한국어와 영어를 지원합니다.
 
 - 정규 10미션과 조작을 익히는 3미션 연습
