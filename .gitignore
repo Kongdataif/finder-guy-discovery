@@ -10,5 +10,6 @@ artifacts/
 # Authoring documents stay on this Mac; they are not part of the GitHub upload.
 docs/
 *.md
+!/README.md
 .agents/
 .codex/
