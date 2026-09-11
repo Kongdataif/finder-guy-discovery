@@ -1,0 +1,66 @@
+@font-face { font-family: fallback; src: local("Arial"); }
+:root { font-family: "Gowun Dodum", system-ui, sans-serif; color: #243c55; background: #e9eff7; color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { display: grid; place-items: center; background: radial-gradient(ellipse at 20% 15%, #fbfdff 0, #edf3fb 45%, #dce8f8 100%); touch-action: none; }
+#game-container { width: min(100%, 1440px); height: min(100%, 810px); position: relative; }
+canvas { display: block; max-width: 100%; max-height: 100%; border-radius: 18px; box-shadow: 0 28px 90px #3f63972b, 0 2px 12px #3f639718; touch-action: none; }
+@media (max-width: 760px) { canvas { border-radius: 0; } }
+
+body.discovery-open { touch-action: auto; }
+.discovery-reader {
+  width: min(960px, calc(100vw - 40px));
+  max-width: none;
+  height: min(670px, calc(100dvh - 40px));
+  max-height: none;
+  padding: 0;
+  border: 1px solid #dce6f2;
+  border-radius: 24px;
+  color: #243c55;
+  background: #fff;
+  box-shadow: 0 24px 100px #29476633;
+  font-family: "Gowun Dodum", system-ui, sans-serif;
+  word-break: keep-all;
+  touch-action: auto;
+}
+.discovery-reader[open] { display: flex; flex-direction: column; }
+.discovery-reader::backdrop { background: #29476666; }
+.discovery-header { flex: none; padding: 26px 34px 18px; border-bottom: 1px solid #e4ebf5; }
+.discovery-eyebrow { margin: 0 0 8px; color: #2774bb; font-size: 15px; }
+.discovery-title { margin: 0; font-size: clamp(23px, 3vw, 32px); font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.discovery-topic { display: inline-block; margin: 12px 0 0; padding: 4px 13px; border-radius: 18px; background: #e7f1ff; color: #2774bb; font-size: 14px; }
+.discovery-scroll { min-height: 0; flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 238px; gap: 30px; padding: 24px 34px; overflow-y: auto; overscroll-behavior: contain; line-height: 1.85; touch-action: pan-y; overflow-wrap: anywhere; }
+.discovery-scroll p { margin: 0 0 18px; }
+.discovery-story { min-width: 0; font-size: 19px; }
+.discovery-quote { border-top: 1px solid #dce6f2; margin-top: 26px; padding-top: 18px; }
+.discovery-quote .discovery-label { margin-bottom: 7px; font-size: 13px; color: #657b92; }
+.discovery-quote blockquote { margin: 0; color: #2774bb; font-size: 20px; }
+.discovery-suggestion { align-self: start; padding: 22px; border-radius: 18px; background: #edf5ff; font-size: 16px; }
+.discovery-suggestion h2 { margin: 0 0 15px; font-size: 18px; line-height: 1.6; font-weight: 600; }
+.discovery-suggestion .discovery-optional-hint { margin: 0; color: #657b92; font-size: 14px; }
+.discovery-actions { flex: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 18px 26px; border-top: 1px solid #e4ebf5; background: #f7faff; }
+.discovery-button { min-height: 48px; padding: 10px 12px; border: 1px solid #dce6f2; border-radius: 13px; background: white; color: #243c55; font: inherit; font-size: 16px; cursor: pointer; touch-action: manipulation; }
+.discovery-button.primary { color: white; background: #2387ec; border-color: #2387ec; }
+.discovery-button:hover { filter: brightness(0.96); }
+.discovery-other { display: inline-block; min-height: 30px; margin-left: 14px; padding: 5px 12px; font-size: 13px; }
+.discovery-suggestion .discovery-button { width: 100%; margin: 10px 0; }
+.discovery-button[hidden] { display: none; }
+.discovery-reader :focus-visible { outline: 3px solid #247aca; outline-offset: 3px; }
+/* The heading receives initial screen-reader focus, but is not a control. */
+.discovery-title:focus { outline: none; }
+@media (max-width: 680px) {
+  .discovery-reader { width: calc(100vw - 16px); height: calc(100dvh - 16px); border-radius: 16px; }
+  .discovery-header { padding: 18px 20px 14px; }
+  .discovery-scroll { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 20px; }
+  .discovery-story { font-size: 17px; }
+  .discovery-actions { gap: 7px; padding: 12px; }
+  .discovery-button { font-size: 14px; padding: 9px 5px; }
+}
+@media (max-height: 550px) and (min-width: 681px) {
+  .discovery-header { padding: 14px 26px 10px; }
+  .discovery-eyebrow { margin-bottom: 4px; }
+  .discovery-title { font-size: 25px; }
+  .discovery-topic { margin-top: 6px; }
+  .discovery-scroll { padding: 16px 26px; }
+  .discovery-actions { padding: 10px 26px; }
+}

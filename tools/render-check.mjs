@@ -1,0 +1,15 @@
+import { chromium } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+const browser = await chromium.launch({headless:true});
+const page = await browser.newPage({viewport:{width:1280,height:800},deviceScaleFactor:1});
+page.on('pageerror', error => console.log('PAGE ERROR:',error.message));
+await page.goto('http://127.0.0.1:5174/?debug=1');
+await page.waitForFunction(()=>{try{return window.__FINDER_GAME__?.scene.getScene('FinderScene')?.inspect().modal==='language';}catch{return false;}});
+await mkdir('artifacts/browser-smoke',{recursive:true});
+await page.screenshot({path:'artifacts/browser-smoke/gate.png'});
+const box=await page.locator('canvas').boundingBox();
+await page.mouse.click(box.x+365/960*box.width,box.y+320/540*box.height);
+await page.waitForFunction(()=>window.__FINDER_GAME__.scene.getScene('FinderScene').inspect().modal===null);
+await page.screenshot({path:'artifacts/browser-smoke/lobby.png'});
+console.log(JSON.stringify({box,state:await page.evaluate(()=>window.__FINDER_GAME__.scene.getScene('FinderScene').inspect())}));
+await browser.close();

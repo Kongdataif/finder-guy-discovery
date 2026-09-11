@@ -1,0 +1,14 @@
+node_modules/
+dist/
+artifacts/
+.DS_Store
+*.log
+
+# Netlify local project metadata
+.netlify/
+
+# Authoring documents stay on this Mac; they are not part of the GitHub upload.
+docs/
+*.md
+.agents/
+.codex/

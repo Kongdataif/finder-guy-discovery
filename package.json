@@ -1,0 +1,26 @@
+{
+  "name": "finder-guy-discovery",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A cozy, bilingual Finder Guy microgame prototype.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174 --strictPort",
+    "test": "vitest run",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4174 --strictPort",
+    "smoke": "node tools/browser-smoke.mjs",
+    "preview:phone": "vite preview --host 0.0.0.0 --port 4175 --strictPort",
+    "test:devices": "node tools/device-smoke.mjs"
+  },
+  "dependencies": {
+    "@fontsource/gowun-dodum": "5.3.0",
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "typescript": "7.0.2",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  }
+}
