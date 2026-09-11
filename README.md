@@ -2,8 +2,8 @@
 
 <p align="center">
   <a href="https://finder-guy-discovery.netlify.app/">
-    <img src="public/assets/finder/poses-v2.png" alt="돋보기로 찾고, 노트북으로 일하고, 쉬거나 여행하는 여러 모습의 파인더 가이" width="640">
-  </a>
+    <img src="public/assets/finder/finder-guy-readme-thumbnail.png"
+      alt="파인더야, 그것 좀 찾아줘! — 파일 정리와 오늘의 발견을 즐기는 미니게임" width="960">  </a>
 </p>
 
 <p align="center">
